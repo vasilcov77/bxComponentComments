@@ -71,9 +71,10 @@ class CDevComments extends CBitrixComponent implements Controllerable
     public function sendMessageAction($post): array
     {
         $error = [];
-        foreach ($post as $item)
+        foreach ($post as $item){
             $data[$item["name"]] = $item["value"];
-
+        }
+            
         if ($data['mode'] == $this->arParams['HIDDEN'] && check_bitrix_sessid()) {
             $elemId = $this->add(
                 $this->arParams['HIGHLOAD_BLOCK_ID'],
